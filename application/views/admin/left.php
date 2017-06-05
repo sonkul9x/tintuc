@@ -73,7 +73,7 @@
 
             <ul class="sub">
                 <li>
-                    <a href="admin/admin.html">
+                    <a href="<?php echo base_url(); ?>admin_auth/auth">
 								Ban quản trị							</a>
                 </li>
                 <li>

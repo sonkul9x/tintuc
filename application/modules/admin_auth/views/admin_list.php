@@ -3,6 +3,7 @@
 <!-- Message -->
 <!-- Main content wrapper -->
 <div class="wrapper">
+    <?php $this->load->view('admin/message') ?>
     <div class="widget">
 
         <div class="title">
@@ -17,8 +18,7 @@
                     <tr>
                         <td style="width:10px;"><img src="<?php echo public_url('admin'); ?>/images/icons/tableArrows.png" /></td>
                         <td style="width:80px;">Mã số</td>
-                        <td>Tên</td>
-                      
+                        <td>Tên</td>                      
                        
                         <td>Username</td>
                         <td style="width:100px;">Hành động</td>
@@ -59,7 +59,7 @@
 
 
                         <td class="option">
-                            <a href="user/edit/19.html" title="Chỉnh sửa" class="tipS ">
+                            <a href="<?php echo base_url('admin_auth/auth/edit/'.$row->id); ?>" title="Chỉnh sửa" class="tipS ">
 							<img src="<?php echo public_url('admin'); ?>/images/icons/color/edit.png" />
 							</a>
 
