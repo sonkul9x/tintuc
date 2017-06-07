@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 05, 2017 at 12:36 PM
+-- Generation Time: Jun 07, 2017 at 12:32 PM
 -- Server version: 10.1.19-MariaDB
 -- PHP Version: 5.6.28
 
@@ -39,9 +39,8 @@ CREATE TABLE `admin` (
 --
 
 INSERT INTO `admin` (`id`, `username`, `password`, `name`, `admin_group_id`) VALUES
-(1, 'admin', '96e79218965eb72c92a549dd5a330112', 'Hoàng văn Tuyền', 1),
-(7, 'admincp', '96e79218965eb72c92a549dd5a330112', 'Mod', 2),
-(9, 'dev.hlweb', '220015a6c48a41719f400b83f01d68b8', 'Trần Văn Sơn', 0);
+(1, 'admin', 'e10adc3949ba59abbe56e057f20f883e', 'SupperAdmin', 1),
+(10, 'dev.hlweb', 'e10adc3949ba59abbe56e057f20f883e', 'Trần Văn Sơn', 0);
 
 -- --------------------------------------------------------
 
@@ -87,22 +86,22 @@ CREATE TABLE `catalog` (
 INSERT INTO `catalog` (`id`, `name`, `site_title`, `meta_desc`, `meta_key`, `parent_id`, `sort_order`) VALUES
 (1, 'Laptop', '', '', '', 0, 0),
 (2, 'Điện thoại', '', '', '', 0, 1),
-(3, 'Tivi', '', '', '', 0, 2),
+(3, 'Tivi 	', '', '', '', 0, 2),
 (4, ' Acer', '', '', '', 1, 0),
 (5, ' Apple', '', '', '', 1, 1),
 (6, 'Asus', '', '', '', 1, 2),
 (7, 'Dell', '', '', '', 1, 3),
 (8, 'HP', '', '', '', 1, 5),
 (9, 'Apple', '', '', '', 2, 0),
-(10, 'Asus', '', '', '', 2, 1),
 (11, 'BlackBerry', '', '', '', 2, 3),
 (12, 'HTC', '', '', '', 2, 4),
 (13, 'AKAI', '', '', '', 3, 0),
 (14, 'JVC', '', '', '', 3, 1),
 (15, 'LG', '', '', '', 3, 2),
 (16, 'Panasonic', '', '', '', 3, 3),
-(17, 'Samsung', '', '', '', 3, 5),
-(18, 'Toshiba', '', '', '', 3, 6);
+(17, 'Samsung			', '', '', '', 3, 5),
+(18, 'Toshiba', '', '', '', 3, 6),
+(24, 'Iphone', '', '', '', 2, 5);
 
 -- --------------------------------------------------------
 
@@ -608,7 +607,7 @@ ALTER TABLE `video`
 -- AUTO_INCREMENT for table `admin`
 --
 ALTER TABLE `admin`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 --
 -- AUTO_INCREMENT for table `admin_group`
 --
@@ -618,7 +617,7 @@ ALTER TABLE `admin_group`
 -- AUTO_INCREMENT for table `catalog`
 --
 ALTER TABLE `catalog`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 --
 -- AUTO_INCREMENT for table `comment`
 --

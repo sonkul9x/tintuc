@@ -1,4 +1,4 @@
-<?php if($message){ ?>
+<?php if(isset($message) && !empty($message)){ ?>
 <?php if($message['status'] == 'nWarning'){
 	 $str = 'Cảnh Báo';
 	}elseif($message['status'] == 'nFailure'){

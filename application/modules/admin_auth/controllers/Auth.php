@@ -30,7 +30,7 @@ class Auth extends MY_Controller {
 
 		if($this->input->post()){
 			$this->form_validation->set_rules('name', 'Họ và tên', 'trim|required|min_length[6]|max_length[20]');
-			$this->form_validation->set_rules('username', 'Tài khoản', 'trim|required|min_length[6]|max_length[12]|callback__check_username');
+			$this->form_validation->set_rules('username', 'Tài khoản', 'trim|required|min_length[4]|max_length[12]|callback__check_username');
 			$this->form_validation->set_rules('pass', 'Mật khẩu', 'trim|required|min_length[5]|max_length[12]');
 			$this->form_validation->set_rules('repass', 'Nhập lại mật khẩu', 'trim|required|matches[pass]');
 			//Nhập liệu chính xác
@@ -51,7 +51,7 @@ class Auth extends MY_Controller {
 					$message = array('status' => 'nWarning','mes' => 'Thêm Quản trị viên không thành công');
 					$this->session->set_flashdata('message',$message);
 				}
-				redirect(base_url('admin_auth/auth'),'refresh');
+				redirect(base_url('quan-tri/quan-tri-vien'),'refresh');
 
 			} 
 		}
@@ -74,17 +74,17 @@ class Auth extends MY_Controller {
 	{
 		$id = $this->uri->segment(4);
 		$id = intval($id);
-		$info = $this->admin_model->get_info($id);
+
+		$info = $this->admin_model->get_info($id);			
 		if(!$info){
 			$message = array('status' => 'nFailure','mes' => 'Quản trị viện không tồn tại');
 			$this->session->set_flashdata('message',$message);
-			redirect(base_url('admin_auth/auth'));
-			
+			redirect(base_url('quan-tri/quan-tri-vien'));			
 		}
-		$data['info'] = $info;
+		$data['info'] = $info;		
 		if($this->input->post()){
 			$this->form_validation->set_rules('name', 'Họ và tên', 'trim|required|min_length[6]|max_length[20]');
-			$this->form_validation->set_rules('username', 'Tài khoản', 'trim|required|min_length[6]|max_length[12]|callback__check_username');
+			$this->form_validation->set_rules('username', 'Tài khoản', 'trim|required|min_length[4]|max_length[12]');
 			$password = $this->input->post('pass');
 			if($password){
 			$this->form_validation->set_rules('pass', 'Mật khẩu', 'trim|min_length[5]|max_length[12]');
@@ -110,31 +110,38 @@ class Auth extends MY_Controller {
 					$this->session->set_flashdata('message',$message);
 					
 				}
-			redirect(base_url('admin_auth/auth'),'refresh');
+			redirect(base_url('quan-tri/quan-tri-vien'),'refresh');
 
-			} else {
-				$message = array('status' => 'nFailure','mes' => 'Chỉnh sửa thông tin quản trị không thành công');
-				$this->session->set_flashdata('message',$message);
-				redirect(base_url('admin_auth/auth'),'refresh');
-			}
-
-
-
+			} 
 		}
-
-
-
-
-
-
-
-
-
-
 
 		$data['temp'] = 'admin_edit';
 		$this->load->view('admin/main',$data);
 	}
+		function delete()
+		{
+			$id = $this->uri->segment(4);
+			$id = intval($id);
+			//Lấy thông tin quản trị viên
+			$info = $this->admin_model->get_info($id);		
+			if(!isset($info) && empty($info)){
+				$message = array('status' => 'nFailure','mes' => 'Quản trị viện không tồn tại');
+				$this->session->set_flashdata('message',$message);
+				redirect(base_url('quan-tri/quan-tri-vien'));			
+			}
+			//thực hiện xóa
+			if($id === 1){
+				$message = array('status' => 'nInformation','mes' => 'Không thể xóa tài khoản SupperAdmin');
+				$this->session->set_flashdata('message',$message);
+				redirect(base_url('quan-tri/quan-tri-vien'));		
+			}else{
+				$this->admin_model->delete($id);
+				$message = array('status' => 'nSuccess','mes' => 'Xóa tài khoản Quản trị viên thành công!');
+				$this->session->set_flashdata('message',$message);
+				redirect(base_url('quan-tri/quan-tri-vien'));		
+			}
+		}
+	
 	
 }
 

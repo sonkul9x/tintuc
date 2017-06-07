@@ -50,11 +50,11 @@
 
             <ul class="sub">
                 <li>
-                    <a href="admin/product.html">
+                    <a href="<?php echo admin_url('san-pham'); ?>">
 								Sản phẩm							</a>
                 </li>
                 <li>
-                    <a href="admin/cat.html">
+                    <a href="<?php echo admin_url('danh-muc-san-pham'); ?>">
 								Danh mục							</a>
                 </li>
                 <li>
@@ -73,7 +73,7 @@
 
             <ul class="sub">
                 <li>
-                    <a href="<?php echo base_url(); ?>admin_auth/auth">
+                    <a href="<?php echo admin_url('quan-tri-vien'); ?>">
 								Ban quản trị							</a>
                 </li>
                 <li>

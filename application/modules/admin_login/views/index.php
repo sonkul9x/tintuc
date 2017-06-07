@@ -13,7 +13,6 @@
 	        <div class="title"><img src="<?php echo public_url('admin'); ?>/images/icons/dark/laptop.png" alt="" class="titleIcon" />
 	        	<h6>Đăng nhập</h6>
 	        </div>
-	        
 	        <form class="form" id="form" action="" method="post">
 	           <fieldset>
 	                <div class="formRow">
@@ -24,10 +23,10 @@
 	                
 	                <div class="formRow">
 	                    <label for="param_password">Mật khẩu:</label>
-	                    <div class="loginInput"><input type="password" name="password" id="param_password" /></div>
+	                    <div class="loginInput"><input type="password" name="pass" id="param_password" /></div>
 	                    <div class="clear"></div>
 	                </div>
-	                
+	                <div  style="padding: 0 10px;color: #f00;"><?php echo form_error('login'); ?></div>
 	                <div class="loginControl">
 	                    <input type='hidden' name="submit" value='1'/>
 	                    <input type="submit"  value="Đăng nhập" class="dredB logMeIn" />

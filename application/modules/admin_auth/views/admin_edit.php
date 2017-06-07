@@ -4,7 +4,7 @@
 <!-- Main content wrapper -->
 <div class="wrapper">
     <!-- Form -->
-    <form class="form" id="form" action="<?php echo base_url(); ?>admin_auth/auth/edit" method="post" enctype="multipart/form-data">
+    <form class="form" id="form" action="" method="post" enctype="multipart/form-data">
         <fieldset>
             <div class="widget">
                 <div class="title">
@@ -33,9 +33,10 @@
                     <label class="formLeft" for="param_password">Mật khẩu:</label>
                     <div class="formRight">
                         <span class="oneTwo"><input name="pass" id="param_password" _autocheck="true" value="<?php echo set_value('pass'); ?>" type="password" /></span>    
-                        <p>Không cần nhập nếu không cần đổi!</p>
+                                    
                         <span name="name_autocheck" class="autocheck"></span>
                         <div name="name_error" class="clear error"><?php echo form_error('pass'); ?></div>
+                         <span class="formNote">Không cần nhập nếu không cần đổi!</span>     
                     </div>
                     <div class="clear"></div>
                 </div>
@@ -50,8 +51,7 @@
                 </div>
 
                 <div class="formSubmit">
-                    <input type="submit" value="Chỉnh Sửa" class="redB" />
-                    <input type="reset" value="Reset" class="basic" />
+                    <input type="submit" value="Chỉnh Sửa" class="redB" />                    
                 </div>
                 <div class="clear"></div>
             </div>

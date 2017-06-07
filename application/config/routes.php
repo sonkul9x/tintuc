@@ -50,6 +50,34 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 |		my-controller/my-method	-> my_controller/my_method
 */
 $route['default_controller'] = "home";
-$route['abc'] = "home/abc";
+$route['quan-tri/dang-nhap'] = "admin_login/login";
+$route['quan-tri/dang-xuat'] = "admin_login/login/logout";
+
+$route['quan-tri'] = "admin_dashboard/dashboard";
+$route['quan-tri/dashboard'] = "admin_dashboard/dashboard";
+$route['quan-tri/quan-tri-vien'] = "admin_auth/auth";
+$route['quan-tri/quan-tri-vien'] = "admin_auth/auth/index";
+$route['quan-tri/quan-tri-vien/add'] = "admin_auth/auth/add";
+$route['quan-tri/quan-tri-vien/edit/(:num)'] = "admin_auth/auth/edit/$1";
+$route['quan-tri/quan-tri-vien/delete/(:num)'] = "admin_auth/auth/delete/$1";
+
+/*Sản phẩm */
+
+$route['quan-tri/danh-muc-san-pham'] = "products/catalog";
+$route['quan-tri/danh-muc-san-pham/add'] = "products/catalog/add";
+$route['quan-tri/danh-muc-san-pham/edit/(:num)'] = "products/catalog/edit/$1";
+$route['quan-tri/danh-muc-san-pham/delete/(:num)'] = "products/catalog/delete/$1";
+$route['quan-tri/danh-muc-san-pham/deleteall'] = "products/catalog/deleteall";
+
+$route['quan-tri/san-pham'] = "products/products";
+$route['quan-tri/san-pham/(:num)'] = "products/products/index/$1";
+$route['quan-tri/san-pham/add'] = "products/products/add";
+$route['quan-tri/san-pham/edit/(:num)'] = "products/products/edit/$1";
+$route['quan-tri/san-pham/delete/(:num)'] = "products/products/delete/$1";
+$route['quan-tri/san-pham/deleteall'] = "products/products/deleteall";
+
+
+
+
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
