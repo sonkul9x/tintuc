@@ -1,6 +1,6 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
-<title><?php echo $title; ?></title>
+<title><?php echo isset($title) ? $title : 'Trang chủ'; ?></title>
 
 <meta name="robots" content="noindex, nofollow" />
 
@@ -15,8 +15,8 @@
 	var public_url 	= '';
 </script>
 
-<script type="text/javascript" src="<?php echo public_url(); ?>/js/jquery/jquery.min.js"></script>
-<script type="text/javascript" src="<?php echo public_url(); ?>/js/jquery/jquery-ui.min.js"></script>
+<script type="text/javascript" src="<?php echo public_url(); ?>js/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="<?php echo public_url(); ?>js/jquery/jquery-ui.min.js"></script>
 
 <script type="text/javascript" src="<?php echo public_url('admin/crown'); ?>/js/plugins/spinner/jquery.mousewheel.js"></script>
 
@@ -53,3 +53,9 @@
 <link rel="stylesheet" type="text/css" href="<?php echo public_url(); ?>/js/jquery/colorbox/colorbox.css" media="screen" />
 
 <script type="text/javascript" src="<?php echo public_url(); ?>/js/custom_admin.js" type="text/javascript"></script>
+
+
+
+
+
+

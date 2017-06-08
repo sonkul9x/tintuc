@@ -14,7 +14,9 @@ class Login extends MY_Controller {
 				redirect(base_url('quan-tri'),'refresh');
 			} 
 		}
-		$this->load->view('index');
+		$data = array();
+		$data['title'] = 'Đăng nhập';
+		$this->load->view('index',$data);
 	}
 	function _check_login()
 	{

@@ -8,9 +8,10 @@
 		public $data = array();
 		
 		function __construct()
-		{
+		{			
 			parent::__construct();
 			//kế thừa từ CI controller
+			date_default_timezone_set('Asia/Ho_Chi_Minh');
 			$controller = $this->uri->segment(1);	
 			switch ($controller) {
 				case 'quan-tri':

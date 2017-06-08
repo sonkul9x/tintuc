@@ -5,8 +5,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	
 		public function index()
 		{
-			$this->data['temp'] = 'index';
-			$this->load->view('admin/main',$this->data);		
+			$data = array();
+			$data['title'] = 'Bảng điều khiển';
+			$data['temp'] = 'index';
+			$this->load->view('admin/main',$data);		
 			
 		}
 	

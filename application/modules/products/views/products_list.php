@@ -23,7 +23,7 @@
 							<td class="item"><input name="id" value="<?php echo $this->input->get('id'); ?>" id="filter_id" type="text" style="width:55px;" /></td>
 							
 							<td class="label" style="width:40px;"><label for="filter_id">Tên</label></td>
-							<td class="item" style="width:155px;" ><input name="name" value="" id="filter_iname" type="text" style="width:155px;" /></td>
+							<td class="item" style="width:155px;" ><input name="name" value="<?php echo $this->input->get('name'); ?>" id="filter_iname" type="text" style="width:155px;" /></td>
 							
 							<td class="label" style="width:60px;"><label for="filter_status">Thể loại</label></td>
 							<td class="item">
@@ -34,11 +34,11 @@
 											if (count($vcatalog->subs) > 1) { ?>																	
 									     <optgroup label="<?php echo $vcatalog->name; ?>">
 											<?php foreach ($vcatalog->subs as $value) { ?>											
-									       		<option value="<?php echo $value->id; ?>" ><?php echo $value->name; ?> </option>
+									       		<option value="<?php echo $value->id; ?>" <?php if($this->input->get('catalog') == $value->id){echo 'selected';} ?> ><?php echo $value->name; ?> </option>
 											<?php }; ?>
 									     </optgroup>
 									     <?php }else{ ?>
-									     	<option value="<?php echo $vcatalog->id; ?>" ><?php echo $vcatalog->name; ?></option>
+									     	<option value="<?php echo $vcatalog->id; ?>" <?php if($this->input->get('catalog') == $value->id){echo 'selected';} ?> ><?php echo $vcatalog->name; ?></option>
 									     <?php } ?>
 									<?php } ?>
 
@@ -63,7 +63,7 @@
 					<td style="width:60px;">Mã số</td>
 					<td>Tên</td>
 					<td>Giá</td>
-					<td style="width:75px;">Ngày tạo</td>
+					<td style="width:150px;">Ngày tạo</td>
 					<td style="width:120px;">Hành động</td>
 				</tr>
 			</thead>
@@ -84,7 +84,7 @@
 				</tr>
 			</tfoot>
 			
-			<tbody class="list_item">
+			<tbody class="list_item">			
 			<?php if (isset($list) && !empty($list)) :
 			foreach ($list as $row) :  ?>
 					       <tr class='row_<?php echo $row->id; ?>'>
@@ -109,7 +109,7 @@
 					
 					<td class="textR">
 					     <?php if($row->discount > 0): ?>
-								<?php $pricenew = $row->price - $row->discount;
+								<?php $pricenew = $row->price -(($row->price / 100) * $row->discount); 
 								 ?> <p style="color:red;"><?php echo number_format($pricenew,'0','0','.'); ?> đ</p>
 	                       <p style='text-decoration:line-through'><?php echo number_format($row->price,'0','0','.'); ?> đ</p>
 					     <?php else: ?>
@@ -119,16 +119,16 @@
 					</td>
 
 					
-					<td class="textC">01-01-1970</td>
+					<td class="textC"><?php echo date("h:i:s d-m-Y",$row->created); ?></td>
 					
 					<td class="option textC">
 						<!-- <a href="" title="Gán là nhạc tiêu biểu" class="tipE">
 							<img src="<?php //echo public_url('admin'); ?>/images/icons/color/star.png" />
 						</a> -->
-												<a  href="product/view/9.html" target='_blank' class='tipS' title="Xem chi tiết sản phẩm">
+												<a  href="#" target='_blank' class='tipS' title="Xem chi tiết sản phẩm">
 								<img src="<?php echo public_url('admin'); ?>/images/icons/color/view.png" />
 						 </a>
-						 <a href="admin/product/edit/9.html" title="Chỉnh sửa" class="tipS">
+						 <a href="<?php echo admin_url('san-pham/edit/'.$row->id); ?>" title="Chỉnh sửa" class="tipS">
 							<img src="<?php echo public_url('admin'); ?>/images/icons/color/edit.png" />
 						</a>
 						
@@ -138,7 +138,7 @@
 					</td>
 				</tr>
 			<?php endforeach; else: ?>
-		        			    <tr><p>Sản phẩm đang được cập nhập!</p></tr>
+		        			    <td colspan="6"><p>Sản phẩm đang được cập nhập!</p></td>
 		        			    <?php endif; ?>
 
 		        			</tbody>

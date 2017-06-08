@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 07, 2017 at 12:32 PM
+-- Generation Time: Jun 08, 2017 at 12:16 PM
 -- Server version: 10.1.19-MariaDB
 -- PHP Version: 5.6.28
 
@@ -305,6 +305,7 @@ CREATE TABLE `product` (
   `image_link` varchar(50) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
   `image_list` text COLLATE utf8_unicode_ci NOT NULL,
   `created` int(11) NOT NULL DEFAULT '0',
+  `updated` int(11) DEFAULT NULL,
   `view` int(11) NOT NULL DEFAULT '0',
   `meta_key` varchar(255) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
   `site_title` varchar(255) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
@@ -313,7 +314,7 @@ CREATE TABLE `product` (
   `buyed` int(255) NOT NULL,
   `rate_total` int(255) NOT NULL,
   `rate_count` int(255) NOT NULL,
-  `gifts` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
+  `gifts` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
   `video` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `meta_desc` varchar(255) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
   `feature` enum('0','1') CHARACTER SET utf8 COLLATE utf8_bin NOT NULL
@@ -323,15 +324,16 @@ CREATE TABLE `product` (
 -- Dumping data for table `product`
 --
 
-INSERT INTO `product` (`id`, `catalog_id`, `name`, `maker_id`, `price`, `content`, `discount`, `image_link`, `image_list`, `created`, `view`, `meta_key`, `site_title`, `warranty`, `total`, `buyed`, `rate_total`, `rate_count`, `gifts`, `video`, `meta_desc`, `feature`) VALUES
-(2, 15, 'Tivi LG 4000', 0, '4000000.0000', 'Bài viết cho sản phẩm này đang được cập nhật ...', 200000, 'product2.jpg', '', 0, 4, '', '', '12 tháng', 0, 0, 4, 1, 'USB 4G', 'https://www.youtube.com/watch?v=zAEYQ6FDO5U', '', '0'),
-(3, 13, 'Tivi Akai', 0, '5000000.0000', 'Bài viết cho sản phẩm này đang được cập nhật ...', 0, 'product1.jpg', '', 0, 8, '', '', '12 tháng', 0, 0, 4, 1, 'USB 4G', 'https://www.youtube.com/watch?v=zAEYQ6FDO5U', '', '0'),
-(4, 16, 'Tivi Panasonic', 0, '6000000.0000', 'Bài viết cho sản phẩm này đang được cập nhật ...', 0, 'product3.jpg', '', 0, 4, '', '', '12 tháng', 0, 0, 12, 3, 'USB 4G', 'https://www.youtube.com/watch?v=zAEYQ6FDO5U', '', '0'),
-(5, 17, 'Tivi Samsung', 0, '5500000.0000', 'Bài viết cho sản phẩm này đang được cập nhật ...', 0, 'product4.jpg', '', 0, 1, '', '', '12 tháng', 0, 0, 0, 0, 'USB 4G', 'https://www.youtube.com/watch?v=zAEYQ6FDO5U', '', '0'),
-(6, 15, 'Tivi LG 5000', 0, '5000000.0000', 'Bài viết cho sản phẩm này đang được cập nhật ...', 0, 'product5.jpg', '', 0, 1, '', '', '12 tháng', 0, 0, 0, 0, 'USB 4G', 'https://www.youtube.com/watch?v=zAEYQ6FDO5U', '', '0'),
-(7, 18, 'Tivi Toshiba', 0, '6200000.0000', 'Bài viết cho sản phẩm này đang được cập nhật ...', 400000, 'product6.jpg', '', 0, 74, '', '', '12 tháng', 0, 0, 7, 2, 'USB 4G', 'https://www.youtube.com/watch?v=zAEYQ6FDO5U', '', '0'),
-(8, 14, 'Tivi JVC 500', 0, '10000000.0000', 'Bài viết cho sản phẩm này đang được cập nhật ...', 500000, 'product7.jpg', '', 0, 112, '', '', '12 tháng', 0, 0, 17, 5, 'USB 4G', 'https://www.youtube.com/watch?v=zAEYQ6FDO5U', '', '0'),
-(9, 15, 'Tivi LG 520', 0, '5400000.0000', '<p>\r\n	B&agrave;i viết cho sản phẩm n&agrave;y đang được cập nhật ...</p>\r\n', 0, 'product13.jpg', 'a:0:{}', 0, 19, '', '', '12 tháng', 0, 0, 4, 1, '0', 'https://www.youtube.com/watch?v=zAEYQ6FDO5U', '', '0');
+INSERT INTO `product` (`id`, `catalog_id`, `name`, `maker_id`, `price`, `content`, `discount`, `image_link`, `image_list`, `created`, `updated`, `view`, `meta_key`, `site_title`, `warranty`, `total`, `buyed`, `rate_total`, `rate_count`, `gifts`, `video`, `meta_desc`, `feature`) VALUES
+(2, 15, 'Tivi LG 4000', 0, '4000000.0000', 'Bài viết cho sản phẩm này đang được cập nhật ...', 15, 'product2.jpg', '', 1496911685, NULL, 4, '', '', '12 tháng', 0, 0, 4, 1, 'USB 4G', 'https://www.youtube.com/watch?v=zAEYQ6FDO5U', '', '0'),
+(3, 13, 'Tivi Akai', 0, '5000000.0000', 'Bài viết cho sản phẩm này đang được cập nhật ...', 0, 'product1.jpg', '', 0, NULL, 8, '', '', '12 tháng', 0, 0, 4, 1, 'USB 4G', 'https://www.youtube.com/watch?v=zAEYQ6FDO5U', '', '0'),
+(4, 16, 'Tivi Panasonic', 0, '6000000.0000', 'Bài viết cho sản phẩm này đang được cập nhật ...', 0, 'product3.jpg', '', 0, NULL, 4, '', '', '12 tháng', 0, 0, 12, 3, 'USB 4G', 'https://www.youtube.com/watch?v=zAEYQ6FDO5U', '', '0'),
+(5, 17, 'Tivi Samsung', 0, '5500000.0000', 'Bài viết cho sản phẩm này đang được cập nhật ...', 0, 'product4.jpg', '', 0, NULL, 1, '', '', '12 tháng', 0, 0, 0, 0, 'USB 4G', 'https://www.youtube.com/watch?v=zAEYQ6FDO5U', '', '0'),
+(6, 15, 'Tivi LG 5000', 0, '5000000.0000', 'Bài viết cho sản phẩm này đang được cập nhật ...', 0, 'product5.jpg', '', 0, NULL, 1, '', '', '12 tháng', 0, 0, 0, 0, 'USB 4G', 'https://www.youtube.com/watch?v=zAEYQ6FDO5U', '', '0'),
+(7, 18, 'Tivi Toshiba', 0, '6200000.0000', 'Bài viết cho sản phẩm này đang được cập nhật ...', 40, 'product6.jpg', '', 0, NULL, 74, '', '', '12 tháng', 0, 0, 7, 2, 'USB 4G', 'https://www.youtube.com/watch?v=zAEYQ6FDO5U', '', '0'),
+(8, 14, 'Tivi JVC 500', 0, '10000000.0000', 'Bài viết cho sản phẩm này đang được cập nhật ...', 10, 'product7.jpg', '', 0, NULL, 112, '', '', '12 tháng', 0, 0, 17, 5, 'USB 4G', 'https://www.youtube.com/watch?v=zAEYQ6FDO5U', '', '0'),
+(9, 15, 'Tivi LG 520', 0, '5400000.0000', '<p>\r\n	B&agrave;i viết cho sản phẩm n&agrave;y đang được cập nhật ...</p>\r\n', 0, 'product13.jpg', 'a:0:{}', 0, NULL, 19, '', '', '12 tháng', 0, 0, 4, 1, '0', 'https://www.youtube.com/watch?v=zAEYQ6FDO5U', '', '0'),
+(16, 24, 'Iphone 8S', 0, '15000000.0000', '<h3 style="color:red;">\r\n	<u><em><strong>Nội dung</strong></em></u></h3>\r\n', 50, 'iphone-8s.jpg', '["576998_199201090210784_985153931_n1.jpg","1480769_209739225880269_716871264_n1.jpg"]', 1496865655, 1496916832, 0, 'Key', 'Tiêu đề ', '100 Năm', 0, 0, 0, 0, 'bcs', '', 'Des', '0');
 
 -- --------------------------------------------------------
 
@@ -662,7 +664,7 @@ ALTER TABLE `order`
 -- AUTO_INCREMENT for table `product`
 --
 ALTER TABLE `product`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 --
 -- AUTO_INCREMENT for table `slide`
 --

@@ -17,7 +17,8 @@ class Auth extends MY_Controller {
 		$list = $this->admin_model->get_list($input);
 		$total = $this->admin_model->get_total();
 
-
+		$data = array();
+		$data['title'] = 'Danh sách quản trị viên';
 		$data['message'] = $this->session->flashdata('message');
 		$data['list'] = $list;
 		$data['total'] = $total;
@@ -55,6 +56,8 @@ class Auth extends MY_Controller {
 
 			} 
 		}
+		$data = array();
+		$data['title'] = 'Thêm mới quản trị viên';
 		$data['temp'] = 'admin_add';
 		$this->load->view('admin/main',$data);
 	}
@@ -114,7 +117,8 @@ class Auth extends MY_Controller {
 
 			} 
 		}
-
+		$data = array();
+		$data['title'] = 'Chỉnh sửa quản trị viên';
 		$data['temp'] = 'admin_edit';
 		$this->load->view('admin/main',$data);
 	}
