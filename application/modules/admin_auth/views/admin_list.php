@@ -6,8 +6,7 @@
     <?php $this->load->view('admin/message') ?>
     <div class="widget">
 
-        <div class="title">
-            <span class="titleIcon"><input type="checkbox" id="titleCheck" name="titleCheck" /></span>
+        <div class="title">          
             <h6>Danh sách Admin</h6>
             <div class="num f12">Tổng số: <b><?php echo $total; ?></b></div>
         </div>
@@ -16,29 +15,15 @@
             <table cellpadding="0" cellspacing="0" width="100%" class="sTable mTable myTable withCheck" id="checkAll">
                 <thead>
                     <tr>
-                        <td style="width:10px;"><img src="<?php echo public_url('admin'); ?>/images/icons/tableArrows.png" /></td>
-                        <td style="width:80px;">Mã số</td>
+                      
+                        <td style="width:100px;">Mã số</td>
                         <td>Tên</td>                      
                        
                         <td>Username</td>
                         <td style="width:100px;">Hành động</td>
                     </tr>
                 </thead>
-
-                <tfoot>
-                    <tr>
-                        <td colspan="7">
-                            <div class="list_action itemActions">
-                                <a href="#submit" id="submit" class="button blueB" url="user/del_all.html">
-                                    <span style='color:white;'>Xóa hết</span>
-                                </a>
-                            </div>
-
-                            <div class='pagination'>
-                            </div>
-                        </td>
-                    </tr>
-                </tfoot>
+                
 
                 <tbody>
                     <!-- Filter -->
@@ -47,7 +32,7 @@
                 	foreach ($list as $row) :                
                  ?>
                     <tr>
-                        <td><input type="checkbox" name="id[]" value="19" /></td>
+                       
 
                         <td class="textC"><?php echo $row->id; ?></td>
 

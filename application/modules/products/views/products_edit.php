@@ -46,12 +46,12 @@
 	<label class="formLeft">Ảnh kèm theo:</label>
 	<div class="formRight">
 		<div class="left" style="margin-right:15px;"><input type="file"  id="image_list" name="image_list[]" multiple></div>
-
+		<?php if(isset($product->image_list) && !empty($product->image_list)): ?>
 		<?php $image_list = json_decode($product->image_list); ?>
 		<?php foreach ($image_list as $value) { ?>
 			<img src="<?php echo base_url('upload/product/'.$value); ?>" style="width: 100px;height: 50px;float: left;margin-right: 5px;" alt="">
 		<?php } ?>
-
+		<?php endif; ?>
 		<div name="image_list_error" class="clear error"><?php echo form_error('image_list'); ?></div>
 	</div>
 	<div class="clear"></div>

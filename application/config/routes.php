@@ -76,7 +76,14 @@ $route['quan-tri/san-pham/edit/(:num)'] = "products/products/edit/$1";
 $route['quan-tri/san-pham/delete/(:num)'] = "products/products/delete/$1";
 $route['quan-tri/san-pham/deleteall'] = "products/products/deleteall";
 
+/* Tin tức */
 
+$route['quan-tri/tin-tuc'] = "news/news";
+$route['quan-tri/tin-tuc/(:num)'] = "news/news/index/$1";
+$route['quan-tri/tin-tuc/add'] = "news/news/add";
+$route['quan-tri/tin-tuc/edit/(:num)'] = "news/news/edit/$1";
+$route['quan-tri/tin-tuc/delete/(:num)'] = "news/news/delete/$1";
+$route['quan-tri/tin-tuc/deleteall'] = "news/news/deleteall";
 
 
 $route['404_override'] = '';

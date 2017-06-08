@@ -12,6 +12,7 @@ class Catalog extends MY_Controller {
 	public function index()
 		{
 			$list = $this->catalog_model->get_list();
+			$data['title'] = 'Danh mục sản phẩm';
 			$data['list'] = $list;
 			$data['message'] = $this->session->flashdata('message');
 			$data['temp'] = 'catalog_list';
@@ -51,6 +52,7 @@ class Catalog extends MY_Controller {
 
 		// Lấy danh sách danh mục cha
 		$list = $this->catalog_model->get_list();
+		$data['title'] = 'Thêm mới danh mục sản phẩm';
 		$data['list'] = $list;
 		$data['temp'] = 'catalog_add';
 		$this->load->view('admin/main',$data);
@@ -104,7 +106,7 @@ class Catalog extends MY_Controller {
 		{
 			$id = $this->uri->segment(4);
 			$id = intval($id);
-			//Lấy thông tin quản trị viên
+			
 			$info = $this->catalog_model->get_info($id);	
 			if(!isset($info) && empty($info)){
 				$message = array('status' => 'nFailure','mes' => 'Danh mục sản phẩm không tồn tại');
@@ -113,28 +115,69 @@ class Catalog extends MY_Controller {
 			}			
 			//thực hiện xóa
 			$where = array('parent_id' => $info->id);
-			if($this->catalog_model->check_exists($where) == TRUE){						
-				$message = array('status' => 'nFailure','mes' => 'Danh mục sản phẩm còn danh mục con không thể xóa');
+			if($this->catalog_model->check_exists($where) == TRUE){								
+				$message = array('status' => 'nWarning','mes' => 'Danh mục sản phẩm còn danh mục con, không thể xóa');
 				$this->session->set_flashdata('message',$message);
-				redirect(admin_url('danh-muc-san-pham'));					
+				redirect(admin_url('danh-muc-san-pham'));	
+
 			}else{
-			
+				//kiểm tra danh mục còn sản phẩm hay không
+				$this->load->model('products_model');
+				$product = $this->products_model->get_info_rule(array('catalog_id'=> $id), 'id');
+				if($product)
+				{					
+					$message = array('status' => 'nWarning','mes' => 'Danh mục sản phẩm còn chứa sản phẩm, không thể xóa!');
+					$this->session->set_flashdata('message',$message);
+					redirect(admin_url('danh-muc-san-pham'));	
+				}
+			}
+			//xóa danh mục		
+
 			$this->catalog_model->delete($id);
-			$message = array('status' => 'nSuccess','mes' => 'Xóa tài khoản danh mục sản phẩm thành công!');
+			$message = array('status' => 'nSuccess','mes' => 'Xóa danh mục sản phẩm thành công!');
 			$this->session->set_flashdata('message',$message);
 			redirect(admin_url('danh-muc-san-pham'));		
-			}
+			
 		}
 
 		function deleteall()
 		{			
-			echo "a";die;
-			if($this->input->post()){
-				$id = $this->input->post('id');
-				pre($id);
-			}
+			
+			$ids = $this->input->post('ids');	
+
+				 foreach ($ids as $id) {
+				 	$this->_del($id,false);
+				 }	
 		}
-	
+		private function _del($id,$redirect = true)
+		{
+			//Lấy thông tin quản trị viên
+			$info = $this->catalog_model->get_info($id);	
+			if(!isset($info) && empty($info)){
+				$message = array('status' => 'nFailure','mes' => 'Danh mục sản phẩm không tồn tại');
+				$this->session->set_flashdata('message',$message);
+				if($redirect){
+				redirect(admin_url('danh-muc-san-pham'));		
+				}else{
+					return false;
+				}	
+			}			
+			//thực hiện xóa			
+			//kiểm tra danh mục còn sản phẩm hay không
+			$this->load->model('products_model');
+			$product = $this->products_model->get_info_rule(array('catalog_id'=> $id), 'id');
+			if($product)
+			{
+				$message = array('status' => 'nWarning','mes' => 'Danh mục sản phẩm còn chứa sản phẩm, không thể xóa!');
+				$this->session->set_flashdata('message',$message);
+				if($redirect){
+				redirect(admin_url('danh-muc-san-pham'));		
+				}else{
+					return false;
+				}	
+			}
+		
+		}
 
 }
 

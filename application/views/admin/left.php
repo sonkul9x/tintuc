@@ -15,7 +15,7 @@
 
         <li class="home">
 
-            <a href="admin/home.html" class="active" id="current">
+            <a href="<?php echo admin_url(); ?>" class="active" id="current">
                 <span>Bảng điều khiển</span>
                 <strong></strong>
             </a>
@@ -119,7 +119,7 @@
 								Slide							</a>
                 </li>
                 <li>
-                    <a href="admin/news.html">
+                    <a href="<?php echo admin_url('tin-tuc'); ?>">
 								Tin tức							</a>
                 </li>
                 <li>

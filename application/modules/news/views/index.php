@@ -1,16 +1,16 @@
-<?php $this->load->view('head-product'); ?>
+<?php $this->load->view('head'); ?>
 <div class="line"></div>
 <!-- Message -->
 
 <!-- Main content wrapper -->
-<div class="wrapper" id="main_product">
+<div class="wrapper" id="main_new">
 	 <?php  $this->load->view('admin/message') ?>
 	<div class="widget">	
 		<div class="title">
 			<span class="titleIcon"><input type="checkbox" id="titleCheck" name="titleCheck" /></span>
 			<h6>
-				Danh sách sản phẩm			</h6>
-		 	<div class="num f12">Số lượng: <b><?php echo count($list); ?></b></div>
+				Danh sách bài viết			</h6>
+		 	<div class="num f12">Số lượng: <b>0</b></div>
 		</div>		
 		<table cellpadding="0" cellspacing="0" width="100%" class="sTable mTable myTable" id="checkAll">
 		
@@ -22,30 +22,10 @@
 							<td class="label" style="width:40px;"><label for="filter_id">Mã số</label></td>
 							<td class="item"><input name="id" value="<?php echo $this->input->get('id'); ?>" id="filter_id" type="text" style="width:55px;" /></td>
 							
-							<td class="label" style="width:40px;"><label for="filter_id">Tên</label></td>
-							<td class="item" style="width:155px;" ><input name="name" value="<?php echo $this->input->get('name'); ?>" id="filter_iname" type="text" style="width:155px;" /></td>
+							<td class="label" style="width:40px;"><label for="filter_id">Tiêu đề</label></td>
+							<td class="item" style="width:155px;" ><input name="title" value="<?php echo $this->input->get('title'); ?>" id="filter_title" type="text" style="width:155px;" /></td>
 							
-							<td class="label" style="width:60px;"><label for="filter_status">Thể loại</label></td>
-							<td class="item">
-							<?php if (isset($catalogs) && !empty($catalogs)) { ?>							
-								<select name="catalog">
-									<option value=""></option>
-									<?php foreach ($catalogs as $vcatalog) {
-											if (count($vcatalog->subs) > 1) { ?>																	
-									     <optgroup label="<?php echo $vcatalog->name; ?>">
-											<?php foreach ($vcatalog->subs as $value) { ?>											
-									       		<option value="<?php echo $value->id; ?>" <?php if($this->input->get('catalog') == $value->id){echo 'selected';} ?> ><?php echo $value->name; ?> </option>
-											<?php }; ?>
-									     </optgroup>
-									     <?php }else{ ?>
-									     	<option value="<?php echo $vcatalog->id; ?>" <?php if($this->input->get('catalog') == $value->id){echo 'selected';} ?> ><?php echo $vcatalog->name; ?></option>
-									     <?php } ?>
-									<?php } ?>
-
-								</select>
-							<?php } ?>
-
-							</td>
+							
 							
 							<td style='width:150px'>
 							<input type="submit" class="button blueB" value="Lọc" />
@@ -61,8 +41,7 @@
 				<tr>
 					<td style="width:21px;"><img src="<?php echo public_url('admin'); ?>/images/icons/tableArrows.png" /></td>
 					<td style="width:60px;">Mã số</td>
-					<td>Tên</td>
-					<td>Giá</td>
+					<td>Tiêu đề</td>				
 					<td style="width:150px;">Ngày tạo</td>
 					<td style="width:120px;">Hành động</td>
 				</tr>
@@ -72,7 +51,7 @@
 				<tr>
 					<td colspan="6">
 					     <div class="list_action itemActions">
-								<a href="#submit" id="submit" class="button blueB" url="<?php echo admin_url('san-pham/deleteall'); ?>">
+								<a href="#submit" id="submit" class="button blueB" url="<?php echo admin_url('tin-tuc/deleteall'); ?>">
 									<span style='color:white;'>Xóa hết</span>
 								</a>
 						 </div>
@@ -94,51 +73,37 @@
 					
 					<td>
 					<div class="image_thumb">
-						<img src="<?php echo base_url('upload/product/').$row->image_link; ?>" height="50">
+						<img src="<?php echo base_url('upload/news/').$row->image_link; ?>" height="50">
 						<div class="clear"></div>
 					</div>
 					
 					<a href="#" class="tipS" title="" target="_blank">
-						<b><?php echo $row->name; ?></b>
+						<b><?php echo $row->title; ?></b>
 					</a>
 					
-					<div class="f11" >
-					  Đã bán: <?php echo $row->buyed; ?>				  | Xem: <?php echo $row->view; ?>					</div>
+					<div class="f11" >Xem: <?php echo $row->count_view; ?></div>
 						
-					</td>
-					
-					<td class="textR">
-					     <?php if($row->discount > 0): ?>
-								<?php $pricenew = $row->price -(($row->price / 100) * $row->discount); 
-								 ?> <p style="color:red;"><?php echo number_format($pricenew,'0','0','.'); ?> đ</p>
-	                       <p style='text-decoration:line-through'><?php echo number_format($row->price,'0','0','.'); ?> đ</p>
-					     <?php else: ?>
-								   <p style="color:red;"><?php echo number_format($row->price,'0','0','.'); ?> đ</p>	                      
-					     <?php endif; ?>
-                           				
-					</td>
-
-					
+					</td>					
 					<td class="textC"><?php echo date("h:i:s d-m-Y",$row->created); ?></td>
 					
 					<td class="option textC">
 						<!-- <a href="" title="Gán là nhạc tiêu biểu" class="tipE">
 							<img src="<?php //echo public_url('admin'); ?>/images/icons/color/star.png" />
 						</a> -->
-												<a  href="#" target='_blank' class='tipS' title="Xem chi tiết sản phẩm">
+												<a  href="#" target='_blank' class='tipS' title="Xem chi tiết bài viết">
 								<img src="<?php echo public_url('admin'); ?>/images/icons/color/view.png" />
 						 </a>
-						 <a href="<?php echo admin_url('san-pham/edit/'.$row->id); ?>" title="Chỉnh sửa" class="tipS">
+						 <a href="<?php echo admin_url('tin-tuc/edit/'.$row->id); ?>" title="Chỉnh sửa" class="tipS">
 							<img src="<?php echo public_url('admin'); ?>/images/icons/color/edit.png" />
 						</a>
 						
-						<a href="<?php echo admin_url('san-pham/delete/'.$row->id); ?>" title="Xóa" class="tipS verify_action" >
+						<a href="<?php echo admin_url('tin-tuc/delete/'.$row->id); ?>" title="Xóa" class="tipS verify_action" >
 						    <img src="<?php echo public_url('admin'); ?>/images/icons/color/delete.png" />
 						</a>
 					</td>
 				</tr>
 			<?php endforeach; else: ?>
-		        			    <td colspan="6"><p>Sản phẩm đang được cập nhập!</p></td>
+		        			    <td colspan="6"><p>Bài viết đang được cập nhập!</p></td>
 		        			    <?php endif; ?>
 
 		        			</tbody>

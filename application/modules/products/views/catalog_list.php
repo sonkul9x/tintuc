@@ -26,7 +26,7 @@
                 <tr>
                     <td colspan="3">
                          <div class="list_action itemActions">
-                                <a href="<?php echo admin_url('danh-muc-san-pham/deleteall'); ?>" id="submit" class="button blueB" >
+                                <a href="#submit" id="submit" class="button blueB" url="<?php echo admin_url('danh-muc-san-pham/deleteall'); ?>" >
                                     <span style='color:white;'>Xóa hết</span>
                                 </a>
                          </div>                            
