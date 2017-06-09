@@ -1,14 +1,14 @@
   <!-- Account panel top -->
-		
+<?php  ?>	
 <div class="topNav">
 	<div class="wrapper">
 		<div class="welcome">
-			<span>Xin chào: <b>admin!</b></span>
+			<span>Mọi thông tin thắc mắc vui lòng liên hệ <b>Supper Admin</b> để được hỗ trợ giải quyết!</span>
 		</div>
 		
 		<div class="userNav">
 			<ul>
-				<li><a href="" target="_blank">
+				<li><a href="<?php echo base_url(); ?>" target="_blank">
 					<img style="margin-top:7px;" src="<?php echo public_url('admin'); ?>/images/icons/light/home.png" />
 					<span>Trang chủ</span>
 				</a></li>

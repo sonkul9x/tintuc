@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<?php $this->load->view('site/head'); ?>
+	<?php $this->load->view('site/head',$data=''); ?>
 </head>
 <body>
 	 <a href="#" id="back_to_top">
@@ -11,14 +11,14 @@
           <!-- the header -->
 	      <div class='header'>
 	           <!-- The box-header-->
-			<?php $this->load->view('site/header'); ?>    		       
+			<?php $this->load->view('site/header',$data=''); ?>    		       
 		  </div>
 		  <!-- End header -->		  
 		  <!-- The container -->
 		  <div id="container">
 		      <!-- The left -->
-			  <div class='left'>
-			      <?php $this->load->view('site/left'); ?>
+			  <div class='left'>			 
+			      <?php $this->load->view('site/left',$this->data); ?>
 			  </div>
 			  <!-- End left -->			  
 			  <!-- The content -->
@@ -29,7 +29,7 @@
 			  
 			  <!-- The right -->
 			  <div class='right'>
-			     <?php $this->load->view('site/right'); ?>   
+			     <?php $this->load->view('site/right',$this->data); ?>   
 			  </div>
 			  <!-- End right -->
 			  <div class="clear"></div>
@@ -42,7 +42,7 @@
 		  <!-- The footer -->
 		  <div class="footer">
 			    <!-- The box-footer-->		       
-     		 <?php $this->load->view('site/footer'); ?>   
+     		 <?php $this->load->view('site/footer',$this->data); ?>   
 		  </div>
 		  <!-- End footer -->
 		  

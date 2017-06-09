@@ -5,12 +5,27 @@ class Login extends MY_Controller {
 
 	function index()
 	{		
+		$this->load->model('login_model');
 		if($this->input->post()){
 			//$this->form_validation->set_rules('username', 'Họ và tên', 'trim|required');
 			//$this->form_validation->set_rules('password', 'Tài khoản', 'trim|required');
 			$this->form_validation->set_rules('login', 'login', 'callback__check_login');
+
+
+
 			if ($this->form_validation->run() == TRUE) {
-				$this->session->set_userdata('login',TRUE);
+				$id = $this->login_model->get_info_rule(array('username'=> $this->input->post('username')),'id');
+				$name = $this->login_model->get_info_rule(array('username'=> $this->input->post('username')),'name');
+				$admin_group_id = $this->login_model->get_info_rule(array('username'=> $this->input->post('username')),'admin_group_id');
+				$login = array(
+					'id'        => $id->id,
+				    'username'  => $this->input->post('username'),
+				    'name'      => $name->name,
+				    'admin_group_id' => $admin_group_id->admin_group_id
+
+				);
+
+				$this->session->set_userdata('login',$login);
 				redirect(base_url('quan-tri'),'refresh');
 			} 
 		}
@@ -34,9 +49,10 @@ class Login extends MY_Controller {
 	function logout()
 	{
 		if ($this->session->userdata('login')) {
+			
 			$this->session->unset_userdata('login');
 		}
-		redirect(admin_url('dang-nhap'),'refresh');
+		 redirect(admin_url('dang-nhap'),'refresh');
 	}
 
 }

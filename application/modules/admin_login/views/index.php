@@ -8,7 +8,6 @@
 <body class="nobg loginPage" style="min-height:100%;">
 	<!-- Main content wrapper -->
 	<div class="loginWrapper" style="top:45%;">
-	
 	    <div class="widget" id="admin_login" style="height:auto; margin:auto;">
 	        <div class="title"><img src="<?php echo public_url('admin'); ?>/images/icons/dark/laptop.png" alt="" class="titleIcon" />
 	        	<h6>Đăng nhập</h6>

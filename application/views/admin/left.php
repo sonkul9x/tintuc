@@ -4,8 +4,10 @@
 
     <div class="sideProfile">
         <a href="#" title="" class="profileFace"><img width="40" src="<?php echo public_url('admin'); ?>/images/user.png" /></a>
-        <span>Xin chào: <strong>admin!</strong></span>
-        <span>Hoàng văn Tuyền</span>
+        <span>Xin chào: <strong>admin.</strong></span>
+        <?php if($this->session->userdata('login')){ ?>
+        <span><?php $login = $this->session->userdata('login'); echo $login['name']; ?></span>
+        <?php } ?>
         <div class="clear"></div>
     </div>
     <div class="sidebarSep"></div>
@@ -115,7 +117,7 @@
 
             <ul class="sub">
                 <li>
-                    <a href="admin/slide.html">
+                    <a href="<?php echo admin_url('slide'); ?>">
 								Slide							</a>
                 </li>
                 <li>

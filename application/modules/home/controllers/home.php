@@ -7,13 +7,10 @@
 		}
 		
 		public function index(){
-			// blank
-			echo "a";
-		}
-		
-		public function abc(){
 			$data['sz_Hmvc'] = "Cài đặt mô hình HMVC trên CodeIgniter !";
 			$this->load->view('home-template', $data);
 		}
+		
+		
 		
 	}

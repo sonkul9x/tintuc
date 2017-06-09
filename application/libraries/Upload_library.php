@@ -15,10 +15,10 @@ class Upload_library
 		$config = $this->config($upload_path);
 		$this->CI->load->library('upload', $config);
 		if ($this->CI->upload->do_upload($file_name)) {
-			$data = $this->CI->upload->data();			
+			$data = $this->CI->upload->data();								
 		}else{
 			//Không upload thành công
-			$data = $this->CI->upload->display_errors();			
+			$data = $this->CI->upload->display_errors();					
 		}	
 		return $data;
 	}

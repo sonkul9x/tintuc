@@ -59,4 +59,4 @@
 }
 </style>
 
-        <title>Học lập trình website với PHP và MYSQL</title>   
+        <title><?php echo $title ? $title : 'Trang Chủ'; ?></title>   

@@ -50,6 +50,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 |		my-controller/my-method	-> my_controller/my_method
 */
 $route['default_controller'] = "home";
+/*
+
+ ADMIN
+
+
+ */
+$route['dang-nhap'] = "admin_login/login";
 $route['quan-tri/dang-nhap'] = "admin_login/login";
 $route['quan-tri/dang-xuat'] = "admin_login/login/logout";
 
@@ -63,27 +70,43 @@ $route['quan-tri/quan-tri-vien/delete/(:num)'] = "admin_auth/auth/delete/$1";
 
 /*Sản phẩm */
 
-$route['quan-tri/danh-muc-san-pham'] = "products/catalog";
-$route['quan-tri/danh-muc-san-pham/add'] = "products/catalog/add";
-$route['quan-tri/danh-muc-san-pham/edit/(:num)'] = "products/catalog/edit/$1";
-$route['quan-tri/danh-muc-san-pham/delete/(:num)'] = "products/catalog/delete/$1";
-$route['quan-tri/danh-muc-san-pham/deleteall'] = "products/catalog/deleteall";
+$route['quan-tri/danh-muc-san-pham'] = "admin_products/catalog";
+$route['quan-tri/danh-muc-san-pham/add'] = "admin_products/catalog/add";
+$route['quan-tri/danh-muc-san-pham/edit/(:num)'] = "admin_products/catalog/edit/$1";
+$route['quan-tri/danh-muc-san-pham/delete/(:num)'] = "admin_products/catalog/delete/$1";
+$route['quan-tri/danh-muc-san-pham/deleteall'] = "admin_products/catalog/deleteall";
 
-$route['quan-tri/san-pham'] = "products/products";
-$route['quan-tri/san-pham/(:num)'] = "products/products/index/$1";
-$route['quan-tri/san-pham/add'] = "products/products/add";
-$route['quan-tri/san-pham/edit/(:num)'] = "products/products/edit/$1";
-$route['quan-tri/san-pham/delete/(:num)'] = "products/products/delete/$1";
-$route['quan-tri/san-pham/deleteall'] = "products/products/deleteall";
+$route['quan-tri/san-pham'] = "admin_products/products";
+$route['quan-tri/san-pham/(:num)'] = "admin_products/products/index/$1";
+$route['quan-tri/san-pham/add'] = "admin_products/products/add";
+$route['quan-tri/san-pham/edit/(:num)'] = "admin_products/products/edit/$1";
+$route['quan-tri/san-pham/delete/(:num)'] = "admin_products/products/delete/$1";
+$route['quan-tri/san-pham/deleteall'] = "admin_products/products/deleteall";
 
 /* Tin tức */
 
-$route['quan-tri/tin-tuc'] = "news/news";
-$route['quan-tri/tin-tuc/(:num)'] = "news/news/index/$1";
-$route['quan-tri/tin-tuc/add'] = "news/news/add";
-$route['quan-tri/tin-tuc/edit/(:num)'] = "news/news/edit/$1";
-$route['quan-tri/tin-tuc/delete/(:num)'] = "news/news/delete/$1";
-$route['quan-tri/tin-tuc/deleteall'] = "news/news/deleteall";
+$route['quan-tri/tin-tuc'] = "admin_news/news";
+$route['quan-tri/tin-tuc/(:num)'] = "admin_news/news/index/$1";
+$route['quan-tri/tin-tuc/add'] = "admin_news/news/add";
+$route['quan-tri/tin-tuc/edit/(:num)'] = "admin_news/news/edit/$1";
+$route['quan-tri/tin-tuc/delete/(:num)'] = "admin_news/news/delete/$1";
+$route['quan-tri/tin-tuc/deleteall'] = "admin_news/news/deleteall";
+
+
+/* Slider */
+$route['quan-tri/slide'] = "admin_slide/slide";
+$route['quan-tri/slide/(:num)'] = "admin_slide/slide/index/$1";
+$route['quan-tri/slide/add'] = "admin_slide/slide/add";
+$route['quan-tri/slide/edit/(:num)'] = "admin_slide/slide/edit/$1";
+$route['quan-tri/slide/delete/(:num)'] = "admin_slide/slide/delete/$1";
+$route['quan-tri/slide/deleteall'] = "admin_slide/slide/deleteall";
+
+
+/*
+
+FRONT-END
+
+*/
 
 
 $route['404_override'] = '';
