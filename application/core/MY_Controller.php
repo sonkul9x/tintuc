@@ -41,7 +41,14 @@
 
 
 
+					//Kiểm tra đã đăng nhập thành viên chưa
 
+					$userdatalogin = $this->session->userdata('user_login');
+	
+					$this->data['userdatalogin'] = $userdatalogin;
+
+					$totalitem = $this->cart->total_items();
+					$this->data['totalitem'] = $totalitem;
 
 
 

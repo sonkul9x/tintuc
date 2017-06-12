@@ -59,4 +59,4 @@
 }
 </style>
 
-        <title><?php echo $title ? $title : 'Trang Chủ'; ?></title>   
+        <title><?php echo isset($title) ? $title : 'Trang Chủ'; ?></title>   

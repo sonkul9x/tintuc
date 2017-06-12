@@ -1,8 +1,8 @@
-<?php if(isset($list) && !empty($list)){ ?>
 <div class="box-center"><!-- The box-center product-->
    <div class="tittle-box-center">
-      <h2><?php echo $catalog->name; ?></h2>
+      <h2>Kết quả tìm kiếm sản phẩm theo giá từ "<?php echo number_format($price_from,'0','0','.'); ?> đ" đến "<?php echo number_format($price_to,'0','0','.'); ?> đ"</h2>
     </div>
+    <?php if(isset($list) && !empty($list)){ ?>
     <div class="box-content-center product"><!-- The box-content-center -->
       <?php foreach ($list as $row) { ?>      
        <div class='product_item'>
@@ -38,5 +38,7 @@
                <?php echo $this->pagination->create_links(); ?>
        </div>  
    </div><!-- End box-content-center -->
+   <?php }else{ ?>   
+<p>Không có sản phẩm nào!</p>
+<?php } ?>
 </div>  <!-- End box-center product-->   
-<?php } ?>   

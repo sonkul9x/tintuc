@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<?php $this->load->view('site/head',$data=''); ?>
+	<?php $this->load->view('site/head',$this->data); ?>
 </head>
 <body>
 	 <a href="#" id="back_to_top">
@@ -11,7 +11,7 @@
           <!-- the header -->
 	      <div class='header'>
 	           <!-- The box-header-->
-			<?php $this->load->view('site/header',$data=''); ?>    		       
+			<?php $this->load->view('site/header',$this->data); ?>    		       
 		  </div>
 		  <!-- End header -->		  
 		  <!-- The container -->
@@ -23,6 +23,7 @@
 			  <!-- End left -->			  
 			  <!-- The content -->
 			  <div class='content'> 
+			  		 <?php $this->load->view('admin/message') ?>
 			  		<?php $this->load->view($temp); ?>
 			   </div>
 			  <!-- End content -->

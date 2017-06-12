@@ -109,7 +109,17 @@
 	</div>
 	<div class="clear"></div>
 </div>
-
+<div class="formRow">
+	<label class="formLeft" for="param_video">
+		Video giới thiệu :
+	</label>
+	<div class="formRight">
+		<span class="oneFour"><input name="video" id="param_video"  type="text" /></span>
+		<span name="video_autocheck" class="autocheck"></span>
+		<div name="video_error" class="clear error"><?php echo form_error('video'); ?></div>
+	</div>
+	<div class="clear"></div>
+</div>
 
 <!-- warranty -->
 <div class="formRow">

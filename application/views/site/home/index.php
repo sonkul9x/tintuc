@@ -9,10 +9,10 @@
       <?php foreach ($product_news as $row) { ?>      
        <div class='product_item'>
            <h3>
-             <a  href="#" title="<?php echo $row->name; ?>"><?php echo $row->name; ?></a>
+             <a  href="<?php echo base_url('products/view/'.$row->id); ?>" title="<?php echo $row->name; ?>"><?php echo $row->name; ?></a>
            </h3>
            <div class='product_img'>
-              <a  href="#" title="<?php echo $row->name; ?>">
+              <a  href="<?php echo base_url('products/view/'.$row->id); ?>" title="<?php echo $row->name; ?>">
                 <img src="<?php echo base_url('upload/product/'.$row->image_link) ?>" alt='<?php echo $row->name; ?>'/>
               </a>
            </div>
@@ -52,10 +52,10 @@
       <?php foreach ($product_hot as $row) { ?>      
        <div class='product_item'>
            <h3>
-             <a  href="#" title="<?php echo $row->name; ?>"><?php echo $row->name; ?></a>
+             <a  href="<?php echo base_url('products/view/'.$row->id); ?>" title="<?php echo $row->name; ?>"><?php echo $row->name; ?></a>
            </h3>
            <div class='product_img'>
-              <a  href="#" title="<?php echo $row->name; ?>">
+              <a  href="<?php echo base_url('products/view/'.$row->id); ?>" title="<?php echo $row->name; ?>">
                 <img src="<?php echo base_url('upload/product/'.$row->image_link) ?>" alt='<?php echo $row->name; ?>'/>
               </a>
            </div>
