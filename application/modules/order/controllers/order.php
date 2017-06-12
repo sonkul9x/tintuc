@@ -33,11 +33,11 @@ class Order extends MY_Controller {
 				$data['user'] = $user;
 			}
 		}
-		$totalitems = 0;
+		$total_amount = 0;
 		foreach ($cart as $row) {
-			$totalitems = $totalitems + $row['subtotal'];
+			$total_amount = $total_amount + $row['subtotal'];
 		}
-		$this->data['totalitems'] = $totalitems;
+		$this->data['total_amount'] = $total_amount;
 
 		if($this->input->post()){
 			$this->form_validation->set_rules('name', 'Họ và tên', 'trim|required|min_length[2]|max_length[20]');
@@ -63,7 +63,7 @@ class Order extends MY_Controller {
 					'user_phone'    => $phone,
 					'user_address'    => $address,
 					'message' => $message,
-					'amount'  => $totalitems,//TỔNG SỐ TIỀN CẦN THANH TOÁN
+					'amount'  => $total_amount,//TỔNG SỐ TIỀN CẦN THANH TOÁN
 					'payment' => $payment,          //CỔNG THANH TOÁN
 					'created' => strtotime("now")
 					);
@@ -87,6 +87,11 @@ class Order extends MY_Controller {
 					 redirect(base_url(''),'refresh');
 					}elseif($payment == 'nganluong' || $payment =='baokim'){
 
+						//load thư viện thanh toán
+						$this->load->library('payments/'.$payment.'_payment');
+						//chuyển sang cổng thanh toán
+						$liba = $payment.'_payment';
+						$this->$liba->payment($transaction_id,$total_amount);
 					}
 				}else{
 					$message = array('status' => 'nWarning','mes' => 'Đặt hàng không thành công, vui lòng liên hệ số hotline để biết thêm thông tin!');

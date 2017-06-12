@@ -22,7 +22,7 @@
    					 <?php } ?>
    					 <tr  style="border: 1px solid #ccc; padding: 5px;">
    					 	<td  style="border: 1px solid #ccc; padding: 5px;">Tổng tiền</td>
-   					 	<td colspan="2"  style="border: 1px solid #ccc; padding: 5px;"><?php echo number_format($totalitems,'0','0','.'); ?> VNĐ</td>
+   					 	<td colspan="2"  style="border: 1px solid #ccc; padding: 5px;"><?php echo number_format($total_amount,'0','0','.'); ?> VNĐ</td>
    					 </tr>
    				</tbody>
    			
@@ -87,7 +87,7 @@
                		<option value="offline">Thanh toán khi nhận hàng</option>
                		<option value="banking">Thanh toán qua Ngân hàng</option>               		
                		<option value="nganluong">Thanh toán qua Ngân Lượng</option>
-               		<option value="nganluong">Thanh toán qua Bảo Kim</option>
+               		<option value="baokim">Thanh toán qua Bảo Kim</option>
                	</select>
               <div class="clear"></div>
               <div id="payment_error" class="error"><?php echo form_error('payment'); ?></div>
