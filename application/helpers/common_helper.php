@@ -59,3 +59,18 @@
 	        }
 	    }
 	}
+	function order_status($param)
+	{		
+		$status = 'a';
+		if($param == 3){
+			$status = '<img src="'.public_url().'site/images/not_done.png" alt="Chưa xử lý">';	
+			
+		}elseif($param == 1){
+			$status = '<img src="'.public_url().'site/images/warning.png" alt="Dang xử lý">';
+
+		}elseif($param == 2){
+			$status = '<img src="'.public_url().'site/images/done.png" alt="Đơn hàng đã hoàn tất">';
+			
+		}
+			return $status;	
+	}

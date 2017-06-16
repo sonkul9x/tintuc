@@ -92,6 +92,15 @@ $route['quan-tri/tin-tuc/edit/(:num)'] = "admin_news/news/edit/$1";
 $route['quan-tri/tin-tuc/delete/(:num)'] = "admin_news/news/delete/$1";
 $route['quan-tri/tin-tuc/deleteall'] = "admin_news/news/deleteall";
 
+/* Đơn hàng */
+
+$route['quan-tri/don-hang'] = "admin_order/orders";
+$route['quan-tri/don-hang/(:num)'] = "admin_order/orders/index/$1";
+$route['quan-tri/don-hang/add'] = "admin_order/orders/add";
+$route['quan-tri/don-hang/edit/(:num)'] = "admin_order/orders/edit/$1";
+$route['quan-tri/don-hang/delete/(:num)'] = "admin_order/orders/delete/$1";
+$route['quan-tri/don-hang/deleteall'] = "admin_order/orders/deleteall";
+ 
 
 /* Slider */
 $route['quan-tri/slide'] = "admin_slide/slide";

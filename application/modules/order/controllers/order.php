@@ -56,7 +56,7 @@ class Order extends MY_Controller {
 				$message = $this->input->post('message');
 				$payment = $this->input->post('payment');
 				$data = array(
-					'status' => 0,
+					'status' => 3,
 					'user_id' => $userid, //ID TV mua hàng nếu đã đăng nhập  = 0 nếu chưa đăng nhập
 					'user_name' => $name,
 					'user_email' => $email,   
@@ -76,16 +76,16 @@ class Order extends MY_Controller {
 							'product_id'  => $row['id'],
 							'qty'         => $row['qty'],
 							'amount'      => $row['subtotal'],
-							'status'      => 0
+							'status'      => 3
 							);
 						$this->order_model->create($data2);					
 					}
 				 $this->cart->destroy();
-				 if($payment == 'offline' || $payment =='banking'){
+				 if($payment == 'nganluong' || $payment == 'offline' || $payment =='banking'){
 				 	$message = array('status' => 'nSuccess','mes' => 'Đặt hàng thành công!');
 					 $this->session->set_flashdata('message',$message);
 					 redirect(base_url(''),'refresh');
-					}elseif($payment == 'nganluong' || $payment =='baokim'){
+					}elseif($payment =='baokim'){
 
 						//load thư viện thanh toán
 						$this->load->library('payments/'.$payment.'_payment');

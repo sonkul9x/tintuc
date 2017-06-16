@@ -86,7 +86,7 @@
                	<select name="payment" id="payment">
                		<option value="offline">Thanh toán khi nhận hàng</option>
                		<option value="banking">Thanh toán qua Ngân hàng</option>               		
-               		<option value="nganluong">Thanh toán qua Ngân Lượng</option>
+              <!--  	<option value="nganluong">Thanh toán qua Ngân Lượng</option> -->
                		<option value="baokim">Thanh toán qua Bảo Kim</option>
                	</select>
               <div class="clear"></div>

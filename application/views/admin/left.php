@@ -14,7 +14,6 @@
     <!-- Left navigation -->
 
     <ul id="menu" class="nav">
-
         <li class="home">
 
             <a href="<?php echo admin_url(); ?>" class="active" id="current">
@@ -28,18 +27,15 @@
 
             <a href="admin/tran.html" class=" exp">
                 <span>Quản lý bán hàng</span>
-                <strong>2</strong>
+                <strong><?php echo $this->count_library->count_trans3(); ?></strong>
             </a>
 
             <ul class="sub">
                 <li>
-                    <a href="admin/tran.html">
-								Giao dịch							</a>
+                    <a href="<?php echo admin_url('don-hang'); ?>">
+								Đơn hàng							</a>
                 </li>
-                <li>
-                    <a href="admin/product_order.html">
-								Đơn hàng sản phẩm							</a>
-                </li>
+               
             </ul>
 
         </li>
